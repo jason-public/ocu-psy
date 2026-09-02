@@ -8,6 +8,15 @@ html {
     scroll-behavior: smooth;
 }
 
+#intro-section,
+#news-section,
+#schedule-section,
+#newsletter-section,
+#scholarship-section,
+#support-section {
+    scroll-margin-top: 90px;
+}
+
 body { 
     font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     overflow-x: hidden;

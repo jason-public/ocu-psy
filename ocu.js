@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initHeaderScroll();
     initIntroTabs();
+    initNavIntroTabTriggers();
     initNewsCarouselAndFilter();
     initLiveSearch();
     initScheduleWidget();
@@ -81,6 +82,11 @@ const introTabData = {
         subtitle: "현대인의 마음을 치유하는 실무형 전문가 양성",
         desc: "열린사이버대학교 상담심리학과는 복잡한 현대 사회에서 발생하는 다양한 심리적 갈등과 스트레스를 치유하고, 개인의 성장과 발달을 돕는 전문가를 양성합니다. 체계적인 이론 교육과 현장 중심의 실습을 통해, 언제 어디서나 꼭 필요한 맞춤형 상담 서비스를 제공할 수 있는 역량을 키웁니다."
     },
+    faculty: {
+        title: "우수한 상담심리 분야 전문 교수진",
+        subtitle: "이론과 현장 실무를 겸비한 최고 수준의 교수진",
+        desc: "학계 및 상담 임상 현장에서 활발히 활동하고 계신 우수한 교수진이 학생 1:1 맞춤형 진로 지도와 깊이 있는 전문 상담 심리 교육을 제공합니다."
+    },
     curriculum: {
         title: "체계적인 단계별 커리큘럼",
         subtitle: "기초 심리학부터 고급 임상 상담 실습까지",
@@ -103,6 +109,10 @@ function initIntroTabs() {
     const titleEl = document.getElementById('intro-title');
     const subtitleEl = document.getElementById('intro-subtitle');
     const descEl = document.getElementById('intro-desc');
+    const courseBtn = document.getElementById('intro-course-btn');
+    const facultyBtn = document.getElementById('intro-faculty-btn');
+    const licenseBtn = document.getElementById('intro-license-btn');
+    const careerBtn = document.getElementById('intro-career-btn');
 
     if (!tabBtns.length) return;
 
@@ -115,6 +125,39 @@ function initIntroTabs() {
             // 탭 액티브 클래스 교체
             tabBtns.forEach(b => b.classList.remove('tab-active'));
             btn.classList.add('tab-active');
+
+            // [사용자 요청 반영] 탭별 전용 안내 버튼 노출 제어
+            if (courseBtn) {
+                if (key === 'curriculum') {
+                    courseBtn.classList.remove('hidden');
+                } else {
+                    courseBtn.classList.add('hidden');
+                }
+            }
+
+            if (facultyBtn) {
+                if (key === 'faculty') {
+                    facultyBtn.classList.remove('hidden');
+                } else {
+                    facultyBtn.classList.add('hidden');
+                }
+            }
+
+            if (licenseBtn) {
+                if (key === 'license') {
+                    licenseBtn.classList.remove('hidden');
+                } else {
+                    licenseBtn.classList.add('hidden');
+                }
+            }
+
+            if (careerBtn) {
+                if (key === 'career') {
+                    careerBtn.classList.remove('hidden');
+                } else {
+                    careerBtn.classList.add('hidden');
+                }
+            }
 
             // 텍스트 페이드 변경 효과
             if (titleEl && subtitleEl && descEl) {
@@ -131,6 +174,24 @@ function initIntroTabs() {
                     subtitleEl.style.opacity = '1';
                     descEl.style.opacity = '1';
                 }, 200);
+            }
+        });
+    });
+}
+
+/* ==========================================
+   4-2. 상단 내비게이션 전용 탭 연동 핸들러
+   ========================================== */
+function initNavIntroTabTriggers() {
+    const navTriggers = document.querySelectorAll('[data-nav-intro-tab]');
+    navTriggers.forEach(link => {
+        link.addEventListener('click', () => {
+            const targetTabKey = link.getAttribute('data-nav-intro-tab');
+            if (!targetTabKey) return;
+
+            const targetTabBtn = document.querySelector(`.intro-tab-btn[data-intro-tab="${targetTabKey}"]`);
+            if (targetTabBtn) {
+                targetTabBtn.click();
             }
         });
     });

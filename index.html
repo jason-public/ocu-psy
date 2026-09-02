@@ -1,59 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>열린사이버대학 상담심리학과</title>
+    <title>한국열린사이버대학교 상담심리학과</title>
     <!-- 외부 프레임워크 및 폰트 불러오기 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet" />
-    
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+        rel="stylesheet" />
+
     <!-- 분리된 자바스크립트 파일 연결 (Tailwind 설정 포함) -->
     <script src="ocu.js" defer></script>
-    
+
     <!-- 분리된 커스텀 스타일시트 연결 -->
     <link rel="stylesheet" href="ocu.css">
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <!-- Header -->
     <header id="main-header" class="bg-white border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md transform transition-transform hover:scale-105">
-                    O
-                </div>
-                <div>
-                    <h1 class="text-xl font-extrabold text-gray-900 leading-tight">열린사이버대학교</h1>
+            <div class="flex items-center gap-3">
+                <a href="https://www.ocu.ac.kr/Main.do?cmd=viewMain" target="_blank" title="한국열린사이버대학교 메인 사이트로 이동" class="inline-block">
+                    <img src="logo.png" alt="한국열린사이버대학교 로고" class="h-10 w-auto object-contain transform transition-transform hover:scale-105">
+                </a>
+                <div class="cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <h1 class="text-xl font-extrabold text-gray-900 leading-tight">한국열린사이버대학교</h1>
                     <p class="text-sm font-semibold text-primary">상담심리학과</p>
                 </div>
             </div>
-            <nav class="hidden md:flex gap-8 text-lg font-semibold text-gray-700">
-                <a href="#intro-section" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">학과소개 <span class="text-xs">▼</span></a>
-                <a href="#news-section" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">교육과정 <span class="text-xs">▼</span></a>
-                <a href="#schedule-section" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">자격증 <span class="text-xs">▼</span></a>
-                <a href="#newsletter-section" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">학생지원 <span class="text-xs">▼</span></a>
+            <nav class="hidden md:flex gap-6 text-lg font-semibold text-gray-700">
+                <a href="#intro-section" data-nav-intro-tab="goal"
+                    class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">학과소개
+                    <span class="text-xs">▼</span></a>
+                <a href="#intro-section" data-nav-intro-tab="curriculum"
+                    class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">교육과정
+                    <span class="text-xs">▼</span></a>
+                <a href="#intro-section" data-nav-intro-tab="faculty"
+                    class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">교수진
+                    <span class="text-xs">▼</span></a>
+                <a href="#intro-section" data-nav-intro-tab="license"
+                    class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">자격증
+                    <span class="text-xs">▼</span></a>
+                <a href="#intro-section" data-nav-intro-tab="career"
+                    class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">졸업
+                    후 진로
+                    <span class="text-xs">▼</span></a>
             </nav>
             <div class="flex gap-2 items-center">
-                <button class="p-2 text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors" title="학과 소식 알림" onclick="showToast('학과 최신 소식 알림 설정이 완료되었습니다.')">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </button>
-                <button class="p-2 text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors" title="공유하기" onclick="showToast('페이지 주소가 복사되었습니다.')">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                <button
+                    class="p-2 text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                    title="공유하기" onclick="showToast('페이지 주소가 복사되었습니다.')">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
+                        </path>
+                    </svg>
                 </button>
                 <!-- 모바일 햄버거 메뉴 버튼 -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 hover:text-primary rounded-lg focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 text-gray-700 hover:text-primary rounded-lg focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
 
         <!-- 모바일 내비게이션 드로어 -->
-        <div id="mobile-drawer" class="md:hidden hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3 shadow-lg">
-            <a href="#intro-section" class="block font-semibold text-gray-800 hover:text-primary py-2">학과소개</a>
-            <a href="#news-section" class="block font-semibold text-gray-800 hover:text-primary py-2">교육과정</a>
-            <a href="#schedule-section" class="block font-semibold text-gray-800 hover:text-primary py-2">자격증</a>
-            <a href="#newsletter-section" class="block font-semibold text-gray-800 hover:text-primary py-2">학생지원</a>
+        <div id="mobile-drawer"
+            class="md:hidden hidden bg-white border-b border-gray-200 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#intro-section" data-nav-intro-tab="goal"
+                class="block font-semibold text-gray-800 hover:text-primary py-2">학과소개</a>
+            <a href="#intro-section" data-nav-intro-tab="curriculum"
+                class="block font-semibold text-gray-800 hover:text-primary py-2">교육과정</a>
+            <a href="#intro-section" data-nav-intro-tab="faculty"
+                class="block font-semibold text-gray-800 hover:text-primary py-2">교수진</a>
+            <a href="#intro-section" data-nav-intro-tab="license"
+                class="block font-semibold text-gray-800 hover:text-primary py-2">자격증</a>
+            <a href="#intro-section" data-nav-intro-tab="career"
+                class="block font-semibold text-gray-800 hover:text-primary py-2">졸업 후 진로</a>
         </div>
     </header>
 
@@ -61,18 +90,27 @@
     <section class="hero-pattern pt-12 pb-40 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row gap-6 justify-center">
-                
+
                 <!-- Banner 1: Admission (Highlighted) -->
-                <div class="reveal flex-1 bg-[#ffdf6b] rounded-2xl p-8 shadow-sm border border-yellow-200 relative overflow-hidden flex flex-col justify-between min-h-[320px] card-hover-effect">
+                <div
+                    class="reveal flex-1 bg-[#ffdf6b] rounded-2xl p-8 shadow-sm border border-yellow-200 relative overflow-hidden flex flex-col justify-between min-h-[320px] card-hover-effect">
                     <div class="z-10 relative">
-                        <span class="inline-block bg-white text-yellow-800 text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm">2024학년도 신·편입생 모집</span>
-                        <h2 class="text-3xl font-extrabold text-gray-900 leading-tight mb-2">당신의 따뜻한 마음,<br>전문성으로 피어나다</h2>
+                        <span
+                            class="inline-block bg-white text-yellow-800 text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-sm">2027학년도
+                            신·편입생 모집</span>
+                        <h2 class="text-3xl font-extrabold text-gray-900 leading-tight mb-2">당신의 따뜻한 마음,<br>전문성으로 피어나다
+                        </h2>
                         <p class="text-gray-800 text-sm mb-6">마음의 치유를 돕는 상담심리 전문가의 길,<br>열린사이버대학이 함께합니다.</p>
-                        
+
                         <!-- Requested Admission Button -->
-                        <a href="https://go.ocu.ac.kr/Main.do?cmd=viewMain" target="_blank" class="inline-flex items-center gap-2 bg-gray-900 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg group">
+                        <a href="https://go.ocu.ac.kr/Main.do?cmd=viewMain" target="_blank"
+                            class="inline-flex items-center gap-2 bg-gray-900 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg group">
                             열린사이버대학 입학안내
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
                         </a>
                     </div>
                     <!-- Decorative Graphic -->
@@ -80,113 +118,388 @@
                 </div>
 
                 <!-- Banner 2: Scholarship -->
-                <div class="reveal reveal-delay-1 flex-1 bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative flex flex-col justify-between min-h-[320px] card-hover-effect">
+                <div
+                    class="reveal reveal-delay-1 flex-1 bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative flex flex-col justify-between min-h-[320px] card-hover-effect">
                     <div>
                         <h2 class="text-2xl font-bold text-gray-900 mb-2">다양한 장학 혜택<br>부담없는 배움의 시작</h2>
                         <p class="text-gray-500 text-sm mt-4">직장인, 주부, 군인, 산업체 위탁 등<br>다양한 전형을 통한 맞춤형 장학금 지원</p>
-                        
-                        <div class="mt-8 space-y-3">
-                            <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer" onclick="openDetailModal('국가장학 안내', '소득구간별 국가장학금 1, 2유형을 지원하여 등록금 부담을 획기적으로 낮춰드립니다.')">
+
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer"
+                                onclick="openDetailModal('국가장학 안내', '소득구간별 국가장학금 1, 2유형을 지원하여 등록금 부담을 획기적으로 낮춰드립니다.')">
                                 <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">국가장학</span>
                                 <span class="text-sm font-semibold">소득구간별 국가장학금 지원</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg hover:bg-emerald-50 transition-colors cursor-pointer" onclick="openDetailModal('교내장학 안내', '성적우수 장학, 국가유공자 보훈 장학, 직계가족 장학 등 풍부한 교내 장학 혜택을 제공합니다.')">
+                            <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg hover:bg-emerald-50 transition-colors cursor-pointer"
+                                onclick="openDetailModal('교내장학 안내', '성적우수 장학, 국가유공자 보훈 장학, 직계가족 장학 등 풍부한 교내 장학 혜택을 제공합니다.')">
                                 <span class="bg-secondary text-white text-xs font-bold px-2 py-1 rounded">교내장학</span>
                                 <span class="text-sm font-semibold">성적우수, 보훈, 가족장학 등</span>
                             </div>
+                        </div>
+
+                        <!-- [사용자 요청 반영] 장학혜택 버튼 (하단 모집/장학 배너로 스무스 스크롤 이동) -->
+                        <div class="mt-6 flex justify-start">
+                            <a href="#scholarship-section"
+                                class="inline-flex items-center gap-2 bg-[#8c5240] hover:bg-[#734233] text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all transform hover:scale-105 border border-[#734233] group cursor-pointer">
+                                <span>장학혜택</span>
+                                <svg class="w-4 h-4 text-amber-200 transform group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7-7 7M5 12h16" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Banner 3: FAQ -->
-                <div class="reveal reveal-delay-2 flex-1 bg-[#f9f1e7] rounded-2xl p-8 shadow-sm border border-[#ede3d8] flex flex-col items-center justify-center text-center min-h-[320px] card-hover-effect">
+                <div
+                    class="reveal reveal-delay-2 flex-1 bg-[#f9f1e7] rounded-2xl p-8 shadow-sm border border-[#ede3d8] flex flex-col items-center justify-center text-center min-h-[320px] card-hover-effect">
                     <h2 class="text-xl font-bold text-gray-900 mb-2">상담심리학과에 대해<br>자주 묻는 질문(FAQ)</h2>
                     <p class="text-sm text-gray-600 mb-8">자격증 취득부터 실습까지,<br>예비 학우님들의 궁금증을 해결해 드립니다.</p>
-                    
-                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center text-5xl font-bold text-[#e89c62] shadow-sm mb-4 transform hover:rotate-12 transition-transform cursor-pointer" onclick="openDetailModal('자주 묻는 질문(FAQ)', 'Q1. 직장 병행이 가능한가요?\n- 100% 온라인 수업으로 직장 생활과 병행이 가능합니다.\n\nQ2. 자격증 취득이 용이한가요?\n- 임상심리사, 상담심리지도사 등 과목 연계를 완벽 지원합니다.')">
+
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center text-5xl font-bold text-[#e89c62] shadow-sm mb-4 transform hover:rotate-12 transition-transform cursor-pointer"
+                        onclick="openDetailModal('자주 묻는 질문(FAQ)', 'Q1. 직장 병행이 가능한가요?\n- 100% 온라인 수업으로 직장 생활과 병행이 가능합니다.\n\nQ2. 자격증 취득이 용이한가요?\n- 임상심리사, 상담심리지도사 등 과목 연계를 완벽 지원합니다.')">
                         ?
                     </div>
-                    <button onclick="openDetailModal('자주 묻는 질문(FAQ)', 'Q1. 직장 병행이 가능한가요?\n- 100% 온라인 수업으로 직장 생활과 병행이 가능합니다.\n\nQ2. 자격증 취득이 용이한가요?\n- 임상심리사, 상담심리지도사 등 과목 연계를 완벽 지원합니다.')" class="text-sm font-bold text-gray-700 bg-white px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 transition-all hover:scale-105">자세히 보기 ></button>
+                    <button
+                        onclick="openDetailModal('자주 묻는 질문(FAQ)', 'Q1. 직장 병행이 가능한가요?\n- 100% 온라인 수업으로 직장 생활과 병행이 가능합니다.\n\nQ2. 자격증 취득이 용이한가요?\n- 임상심리사, 상담심리지도사 등 과목 연계를 완벽 지원합니다.')"
+                        class="text-sm font-bold text-gray-700 bg-white px-4 py-2 rounded-full shadow-sm hover:bg-gray-50 transition-all hover:scale-105">자세히
+                        보기 ></button>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Main Intro Card (Overlapping) -->
-    <section id="intro-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10 reveal">
-        <div class="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row overflow-hidden border border-gray-100 min-h-[400px]">
-            
-            <!-- Left Info -->
-            <div class="flex-1 p-10 lg:p-14 flex flex-col justify-center relative">
-                <span class="inline-block border border-secondary text-secondary text-xs font-bold px-3 py-1 rounded-full w-max mb-4">학과소개</span>
-                <h2 id="intro-title" class="text-3xl font-extrabold text-gray-900 mb-6 leading-snug transition-all duration-300">상담심리학과란 무엇인가요?</h2>
-                <p id="intro-subtitle" class="text-gray-600 font-semibold mb-4 transition-all duration-300">현대인의 마음을 치유하는 실무형 전문가 양성</p>
-                <p id="intro-desc" class="text-gray-500 leading-relaxed text-sm lg:text-base transition-all duration-300">
-                    열린사이버대학교 상담심리학과는 복잡한 현대 사회에서 발생하는 다양한 심리적 갈등과 스트레스를 치유하고, 개인의 성장과 발달을 돕는 전문가를 양성합니다. 체계적인 이론 교육과 현장 중심의 실습을 통해, 언제 어디서나 꼭 필요한 맞춤형 상담 서비스를 제공할 수 있는 역량을 키웁니다.
-                </p>
-                
-                <!-- Abstract Illustration in center -->
-                <div class="mt-8 flex justify-center opacity-80">
-                    <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:scale-105 transition-transform duration-300">
-                        <circle cx="100" cy="60" r="50" fill="#E6F4F1"/>
-                        <circle cx="70" cy="50" r="15" fill="#1A7162"/>
-                        <path d="M50 90C50 78.9543 58.9543 70 70 70H80V90H50Z" fill="#1A7162"/>
-                        <circle cx="130" cy="50" r="15" fill="#164E87"/>
-                        <path d="M120 70H130C141.046 70 150 78.9543 150 90H120V70Z" fill="#164E87"/>
-                        <path d="M90 60H110V70H90V60Z" fill="#FDE68A"/>
-                    </svg>
-                </div>
-            </div>
+    <!-- [사용자 요청 반영] 상담심리학과 소개 영상 멀티 모달 배너 (학과소개 메인 카드 상단 위치로 이동) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-8 relative z-10 reveal">
+        <div onclick="openVideoModal('https://www.youtube-nocookie.com/embed/6cqEj1uXH0w?autoplay=1&rel=0', '상담심리학과 소개 영상')"
+            class="bg-gradient-to-r from-[#164e87] via-[#1A7162] to-[#165a4c] rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 cursor-pointer transform hover:-translate-y-1 transition-all duration-300 group border border-white/10 relative overflow-hidden">
 
-            <!-- Right Vertical Tabs (Interactive Accordion Tabs) -->
-            <div class="flex flex-row md:flex-row h-64 md:h-auto">
-                <div data-intro-tab="goal" class="intro-tab-btn w-1/4 md:w-20 bg-[#165a4c] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover tab-active transition-all">
-                    <h3 class="font-bold text-lg vertical-text">교육목표</h3>
-                    <p class="text-xs vertical-text opacity-70 mt-4">전문 상담사 양성</p>
-                    <div class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">+</div>
-                </div>
-                <div data-intro-tab="curriculum" class="intro-tab-btn w-1/4 md:w-20 bg-[#1b7183] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
-                    <h3 class="font-bold text-lg vertical-text">커리큘럼</h3>
-                    <p class="text-xs vertical-text opacity-70 mt-4">이론과 실무의 융합</p>
-                    <div class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">+</div>
-                </div>
-                <div data-intro-tab="license" class="intro-tab-btn w-1/4 md:w-20 bg-[#175485] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
-                    <h3 class="font-bold text-lg vertical-text">취득자격증</h3>
-                    <p class="text-xs vertical-text opacity-70 mt-4">국가 및 민간 자격</p>
-                    <div class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">+</div>
-                </div>
-                <div data-intro-tab="career" class="intro-tab-btn w-1/4 md:w-20 bg-[#2d3a5a] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
-                    <h3 class="font-bold text-lg vertical-text">졸업 후 진로</h3>
-                    <p class="text-xs vertical-text opacity-70 mt-4">다양한 상담 현장 진출</p>
-                    <div class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">+</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- [사용자 요청 반영] 상담심리학과 소개 영상 멀티 모달 배너 (Red Box Area) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 reveal">
-        <div onclick="openVideoModal('https://www.youtube-nocookie.com/embed/6cqEj1uXH0w?autoplay=1&rel=0', '상담심리학과 소개 영상')" class="bg-gradient-to-r from-[#164e87] via-[#1A7162] to-[#165a4c] rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 cursor-pointer transform hover:-translate-y-1 transition-all duration-300 group border border-white/10 relative overflow-hidden">
-            
             <!-- Background Decorative Glow -->
-            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500"></div>
+            <div
+                class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500">
+            </div>
 
             <div class="flex items-center gap-5 z-10">
                 <!-- Play Button with Pulse animation -->
-                <div class="w-16 h-16 rounded-full bg-white text-[#164e87] flex items-center justify-center shadow-lg play-pulse-btn transform group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <div
+                    class="w-16 h-16 rounded-full bg-white text-[#164e87] flex items-center justify-center shadow-lg play-pulse-btn transform group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
                 </div>
                 <div>
-                    <span class="inline-block bg-white/20 text-teal-100 text-xs font-bold px-3 py-1 rounded-full mb-1 border border-white/20">영상으로 만나보는 상담심리학과</span>
+                    <span
+                        class="inline-block bg-white/20 text-teal-100 text-xs font-bold px-3 py-1 rounded-full mb-1 border border-white/20">영상으로
+                        만나보는 상담심리학과</span>
                     <h3 class="text-2xl font-extrabold text-white leading-snug">상담심리학과 소개 영상</h3>
                     <p class="text-teal-100 text-sm mt-1">열린사이버대학교 상담심리학과의 모든 것을 영상으로 직접 확인해 보세요!</p>
                 </div>
             </div>
 
-            <div class="z-10 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-3 rounded-full text-sm font-bold border border-white/30 transition-all whitespace-nowrap group-hover:bg-white group-hover:text-[#164e87]">
+            <div
+                class="z-10 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-3 rounded-full text-sm font-bold border border-white/30 transition-all whitespace-nowrap group-hover:bg-white group-hover:text-[#164e87]">
                 <span>영상 바로보기</span>
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h16"></path></svg>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h16">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Intro Card -->
+    <section id="intro-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 relative z-10 reveal">
+        <div
+            class="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row overflow-hidden border border-gray-100 min-h-[400px]">
+
+            <!-- Left Info -->
+            <div class="flex-1 p-10 lg:p-14 flex flex-col justify-center relative">
+                <span
+                    class="inline-block border border-secondary text-secondary text-xs font-bold px-3 py-1 rounded-full w-max mb-4">학과소개</span>
+                <h2 id="intro-title"
+                    class="text-3xl font-extrabold text-gray-900 mb-6 leading-snug transition-all duration-300">상담심리학과란
+                    무엇인가요?</h2>
+                <p id="intro-subtitle" class="text-gray-600 font-semibold mb-4 transition-all duration-300">현대인의 마음을
+                    치유하는 실무형 전문가 양성</p>
+                <p id="intro-desc"
+                    class="text-gray-500 leading-relaxed text-sm lg:text-base transition-all duration-300">
+                    열린사이버대학교 상담심리학과는 복잡한 현대 사회에서 발생하는 다양한 심리적 갈등과 스트레스를 치유하고, 개인의 성장과 발달을 돕는 전문가를 양성합니다. 체계적인 이론 교육과 현장
+                    중심의 실습을 통해, 언제 어디서나 꼭 필요한 맞춤형 상담 서비스를 제공할 수 있는 역량을 키웁니다.
+                </p>
+
+                <!-- [사용자 요청 반영] 탭별 안내 버튼 영역 -->
+                <div class="mt-8 flex flex-col items-center justify-center gap-4">
+                    <!-- 1. 커리큘럼 탭 전용 버튼 -->
+                    <a id="intro-course-btn"
+                        href="https://www.ocu.ac.kr/Dept.do?cmd=viewCourseRoadmap&deptCode=0815&menuInfoId1=dept_00010&menuInfoId2=dept_00051&menuInfoId3=dept_00099"
+                        target="_blank"
+                        class="hidden inline-flex items-center gap-3 bg-[#1b7183] hover:bg-[#145967] text-white font-extrabold text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border border-white/20 group cursor-pointer">
+                        <svg class="w-5 h-5 text-teal-100 transform group-hover:rotate-12 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        <span>교육과정 안내</span>
+                        <svg class="w-4 h-4 text-teal-100 transform group-hover:translate-x-1 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7-7 7M5 12h16" />
+                        </svg>
+                    </a>
+
+                    <!-- 2. 교수진 탭 전용 버튼 -->
+                    <a id="intro-faculty-btn"
+                        href="https://www.ocu.ac.kr/DeptBoard.do?cmd=viewProfessorList&menuInfoId1=dept_00010&menuInfoId2=dept_00052&menuInfoId=dept_00052&deptCode=0815"
+                        target="_blank"
+                        class="hidden inline-flex items-center gap-3 bg-[#147266] hover:bg-[#0f584f] text-white font-extrabold text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border border-white/20 group cursor-pointer">
+                        <svg class="w-5 h-5 text-emerald-100 transform group-hover:rotate-12 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <span>교수진소개 안내</span>
+                        <svg class="w-4 h-4 text-emerald-100 transform group-hover:translate-x-1 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7-7 7M5 12h16" />
+                        </svg>
+                    </a>
+
+                    <!-- 3. 취득자격증 탭 전용 버튼 -->
+                    <a id="intro-license-btn"
+                        href="https://www.ocu.ac.kr/Dept.do?cmd=viewDeptLicense&deptCode=0815&menuInfoId1=dept_00010&menuInfoId2=dept_00053"
+                        target="_blank"
+                        class="hidden inline-flex items-center gap-3 bg-[#164e87] hover:bg-[#103a66] text-white font-extrabold text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border border-white/20 group cursor-pointer">
+                        <svg class="w-5 h-5 text-blue-200 transform group-hover:rotate-12 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                        <span>취득가능자격증 안내</span>
+                        <svg class="w-4 h-4 text-blue-200 transform group-hover:translate-x-1 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7-7 7M5 12h16" />
+                        </svg>
+                    </a>
+
+                    <!-- 4. 졸업 후 진로 탭 전용 버튼 (모달 팝업) -->
+                    <button id="intro-career-btn"
+                        onclick="openDetailModal('졸업 후 진로', '■ 상담사\n- 전국 청소년 상담센터, 아동상담센터, 청소년보호센터, 정신과병원, 군 상담, 노인상담, 성인상담 분야 등\n- 여성, 아동, 청소년, 노인 등을 대상으로 하는 복지기관, 시설, 단체, 협회 등\n\n■ 상담관련 전문가 및 교수\n- 교육기관의 상담실 및 자문기관, 방송자문위원 및 진행, 강사나 전문가, 교수로 활동\n\n■ 대학원 진학\n- 국내 · 외 일반대학원, 교육대학원 진학 가능')"
+                        class="hidden inline-flex items-center gap-3 bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-extrabold text-base px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border border-white/20 group cursor-pointer">
+                        <svg class="w-5 h-5 text-blue-200 transform group-hover:rotate-12 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>졸업 후 진로</span>
+                        <svg class="w-4 h-4 text-blue-200 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h16" />
+                        </svg>
+                    </button>
+
+                    <!-- 중앙 장식 일러스트 은은한 조화 -->
+                    <div class="opacity-70">
+                        <svg width="180" height="90" viewBox="0 0 200 120" fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="hover:scale-105 transition-transform duration-300">
+                            <circle cx="100" cy="60" r="50" fill="#E6F4F1" />
+                            <circle cx="70" cy="50" r="15" fill="#1A7162" />
+                            <path d="M50 90C50 78.9543 58.9543 70 70 70H80V90H50Z" fill="#1A7162" />
+                            <circle cx="130" cy="50" r="15" fill="#164E87" />
+                            <path d="M120 70H130C141.046 70 150 78.9543 150 90H120V70Z" fill="#164E87" />
+                            <path d="M90 60H110V70H90V60Z" fill="#FDE68A" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Vertical Tabs (Interactive Accordion Tabs) -->
+            <div class="flex flex-row md:flex-row h-64 md:h-auto">
+                <div data-intro-tab="goal"
+                    class="intro-tab-btn w-1/5 md:w-20 bg-[#0e6959] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover tab-active transition-all">
+                    <h3 class="font-bold text-lg vertical-text">교육목표</h3>
+                    <p class="text-xs vertical-text opacity-70 mt-4">전문 상담사 양성</p>
+                    <div
+                        class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">
+                        +</div>
+                </div>
+                <div data-intro-tab="faculty"
+                    class="intro-tab-btn w-1/5 md:w-20 bg-[#147266] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
+                    <h3 class="font-bold text-lg vertical-text">교수진</h3>
+                    <p class="text-xs vertical-text opacity-70 mt-4">우수한 전문 교수진</p>
+                    <div
+                        class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">
+                        +</div>
+                </div>
+                <div data-intro-tab="curriculum"
+                    class="intro-tab-btn w-1/5 md:w-20 bg-[#1b7183] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
+                    <h3 class="font-bold text-lg vertical-text">커리큘럼</h3>
+                    <p class="text-xs vertical-text opacity-70 mt-4">이론과 실무의 융합</p>
+                    <div
+                        class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">
+                        +</div>
+                </div>
+                <div data-intro-tab="license"
+                    class="intro-tab-btn w-1/5 md:w-20 bg-[#175485] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
+                    <h3 class="font-bold text-lg vertical-text">취득자격증</h3>
+                    <p class="text-xs vertical-text opacity-70 mt-4">국가 및 민간 자격</p>
+                    <div
+                        class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">
+                        +</div>
+                </div>
+                <div data-intro-tab="career"
+                    class="intro-tab-btn w-1/5 md:w-20 bg-[#2d3a5a] text-white flex flex-col items-center justify-between py-8 cursor-pointer tab-hover transition-all">
+                    <h3 class="font-bold text-lg vertical-text">졸업 후 진로</h3>
+                    <p class="text-xs vertical-text opacity-70 mt-4">다양한 상담 현장 진출</p>
+                    <div
+                        class="mt-auto w-8 h-8 rounded-full border border-white/30 flex items-center justify-center font-light tab-icon">
+                        +</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [사용자 요청 반영] 신/편입생 모집 안내 배너 섹션 (장학혜택, 모집요강 PDF, 문자알림신청 버튼 포함) -->
+    <section id="scholarship-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 reveal">
+        <div
+            class="bg-gradient-to-r from-[#f7f3ed] via-[#fbf9f5] to-[#f4eee6] rounded-2xl p-6 md:p-8 shadow-md border border-[#e8ded1] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden card-hover-effect">
+
+            <!-- 왼쪽: 모집 타이틀 및 배지 -->
+            <div class="flex items-center gap-4 z-10 text-center md:text-left">
+                <div
+                    class="hidden sm:flex w-12 h-12 rounded-xl bg-[#8c5240]/10 border border-[#8c5240]/20 items-center justify-center text-[#8c5240] shadow-inner">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-1">
+                        <span
+                            class="bg-[#8c5240] text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full tracking-wider">ADMISSION</span>
+                        <span class="text-xs text-gray-500 font-semibold">2027학년도 수시·정시</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                        신/편입생 <span class="text-[#164e87]">모집</span>
+                    </h3>
+                </div>
+            </div>
+
+            <!-- 중앙/우측: 요청받은 3개 링크 버튼 그룹 -->
+            <div class="flex flex-wrap items-center justify-center gap-3 z-10">
+                <!-- 1. 장학혜택 버튼 -->
+                <a href="https://go.ocu.ac.kr/Info.do?cmd=viewScholarship&menuGubunCode=01" target="_blank"
+                    class="inline-flex items-center gap-2 bg-[#8c5240] hover:bg-[#734233] text-white font-bold text-sm px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5 border border-[#734233] group">
+                    <svg class="w-4 h-4 text-amber-200 transform group-hover:rotate-12 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>장학혜택</span>
+                </a>
+
+                <!-- 2. 모집요강 PDF 버튼 -->
+                <a href="https://www.ocu.ac.kr/Open/2014/downfile/OCU_entrance.pdf" target="_blank"
+                    class="inline-flex items-center gap-2 bg-white hover:bg-amber-50/60 text-[#8c5240] font-bold text-sm px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5 border border-[#8c5240] group">
+                    <svg class="w-4 h-4 text-red-500 transform group-hover:scale-110 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    <span>모집요강 PDF</span>
+                </a>
+
+                <!-- 3. 문자알림신청 버튼 -->
+                <a href="https://go.ocu.ac.kr/Counsel.do?cmd=viewApplyAlarm" target="_blank"
+                    class="inline-flex items-center gap-2 bg-[#164e87] hover:bg-[#103a66] text-white font-bold text-sm px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5 border border-[#103a66] group">
+                    <svg class="w-4 h-4 text-teal-300 transform group-hover:animate-bounce" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <span>문자알림신청</span>
+                </a>
+            </div>
+
+            <!-- 우측: 학업 감성 일러스트 장식 SVG -->
+            <div class="hidden lg:flex items-center gap-3 opacity-90 z-10">
+                <svg width="120" height="70" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="hover:scale-105 transition-transform duration-300">
+                    <rect width="120" height="70" rx="12" fill="#E8DED1" fill-opacity="0.4" />
+                    <path d="M30 45C30 40 40 38 50 40V55C40 53 30 53 30 45Z" fill="#164E87" fill-opacity="0.7" />
+                    <path d="M70 45C70 40 60 38 50 40V55C60 53 70 53 70 45Z" fill="#8C5240" fill-opacity="0.7" />
+                    <circle cx="90" cy="25" r="10" fill="#1A7162" fill-opacity="0.5" />
+                    <path d="M86 25L94 25M90 21L90 29" stroke="white" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- 은은한 원형 블러 효과 장식 -->
+            <div
+                class="absolute -bottom-10 -right-10 w-48 h-48 bg-amber-200/30 rounded-full blur-xl pointer-events-none">
+            </div>
+        </div>
+    </section>
+
+    <!-- [사용자 요청 반영] 다양한 학습지원 환경 안내 배너 섹션 (지도교수집중상담, 학습매니저, 학업컨설턴트, 열린멘토링) -->
+    <section id="support-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 reveal">
+        <div
+            class="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 p-8 md:p-10 text-white min-h-[180px] flex flex-col lg:flex-row items-center justify-between gap-8 card-hover-effect">
+
+            <!-- 배경 이미지 및 어두운 오버레이 -->
+            <div class="absolute inset-0 z-0">
+                <img src="support_bg.png" alt="학습지원 배경"
+                    class="w-full h-full object-cover object-center transform scale-105 filter brightness-[0.4] contrast-[1.1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/80"></div>
+            </div>
+
+            <!-- 왼쪽: 노란색 큰따옴표 & 타이틀 문구 -->
+            <div class="z-10 flex items-start gap-3 max-w-xl">
+                <!-- 큰따옴표 아이콘 (열기) -->
+                <div class="text-amber-400 text-4xl font-extrabold leading-none select-none">“</div>
+                <div>
+                    <p class="text-gray-200 text-base md:text-lg font-medium tracking-tight">한국열린사이버대학교의</p>
+                    <h3
+                        class="text-2xl md:text-3xl font-extrabold text-white leading-tight mt-1 flex items-baseline gap-2">
+                        <span>다양한 학습지원 환경을 경험하세요.</span>
+                        <!-- 큰따옴표 아이콘 (닫기) -->
+                        <span class="text-amber-400 text-3xl font-extrabold inline-block select-none">”</span>
+                    </h3>
+                </div>
+            </div>
+
+            <!-- 오른쪽: 4개 알약형(Pill-style) 외곽선 버튼 그룹 (2개씩 2줄 2x2 배치) -->
+            <div class="z-10 grid grid-cols-2 gap-3 w-full sm:w-auto">
+                <!-- 1. 지도교수집중상담 -->
+                <a href="https://www.ocu.ac.kr//Campus.do?cmd=viewProfAdvice" target="_blank"
+                    class="px-5 py-2.5 rounded-full border border-white/50 hover:border-white bg-black/40 hover:bg-white/20 text-white font-semibold text-sm text-center transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-md whitespace-nowrap">
+                    지도교수집중상담
+                </a>
+
+                <!-- 2. 학습매니저 -->
+                <a href="https://www.ocu.ac.kr/Campus.do?cmd=viewStudyManage" target="_blank"
+                    class="px-5 py-2.5 rounded-full border border-white/50 hover:border-white bg-black/40 hover:bg-white/20 text-white font-semibold text-sm text-center transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-md whitespace-nowrap">
+                    학습매니저
+                </a>
+
+                <!-- 3. 학업컨설턴트 -->
+                <a href="https://www.ocu.ac.kr/Campus.do?cmd=viewConsultant" target="_blank"
+                    class="px-5 py-2.5 rounded-full border border-white/50 hover:border-white bg-black/40 hover:bg-white/20 text-white font-semibold text-sm text-center transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-md whitespace-nowrap">
+                    학업컨설턴트
+                </a>
+
+                <!-- 4. 열린멘토링 -->
+                <a href="https://www.ocu.ac.kr/Support.do?cmd=viewOpenMentoring" target="_blank"
+                    class="px-5 py-2.5 rounded-full border border-white/50 hover:border-white bg-black/40 hover:bg-white/20 text-white font-semibold text-sm text-center transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-md whitespace-nowrap">
+                    열린멘토링
+                </a>
             </div>
         </div>
     </section>
@@ -198,62 +511,97 @@
                 <h2 class="text-3xl font-extrabold text-white">최신 소식</h2>
                 <!-- Tab Filter Buttons -->
                 <div class="flex gap-4 text-sm font-semibold mt-4 md:mt-0">
-                    <button data-filter="all" class="news-tab-btn text-white border-b-2 border-white pb-1 focus:outline-none transition-all">전체</button>
+                    <button data-filter="all"
+                        class="news-tab-btn text-white border-b-2 border-white pb-1 focus:outline-none transition-all">전체</button>
                     <span class="text-blue-300">·</span>
-                    <button data-filter="notice" class="news-tab-btn text-blue-200 hover:text-white border-b-2 border-transparent pb-1 focus:outline-none transition-all">공지사항</button>
+                    <button data-filter="notice"
+                        class="news-tab-btn text-blue-200 hover:text-white border-b-2 border-transparent pb-1 focus:outline-none transition-all">공지사항</button>
                     <span class="text-blue-300">·</span>
-                    <button data-filter="event" class="news-tab-btn text-blue-200 hover:text-white border-b-2 border-transparent pb-1 focus:outline-none transition-all">특강안내</button>
+                    <button data-filter="event"
+                        class="news-tab-btn text-blue-200 hover:text-white border-b-2 border-transparent pb-1 focus:outline-none transition-all">특강안내</button>
                 </div>
             </div>
 
             <!-- Carousel Cards -->
             <div class="flex items-center gap-4">
                 <!-- Left Arrow -->
-                <button id="news-prev-btn" class="hidden md:flex w-10 h-10 rounded-full border border-white/30 items-center justify-center text-white hover:bg-white/20 transition-all focus:outline-none hover:scale-110">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <button id="news-prev-btn"
+                    class="hidden md:flex w-10 h-10 rounded-full border border-white/30 items-center justify-center text-white hover:bg-white/20 transition-all focus:outline-none hover:scale-110">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
                 </button>
-                
+
                 <!-- Cards Container -->
-                <div id="news-carousel" class="flex-1 flex flex-col md:flex-row gap-6 overflow-x-auto hide-scrollbar pb-4 md:pb-0 scroll-smooth">
-                    
-                    <!-- Card 1 -->
-                    <div data-category="notice" class="news-card min-w-[280px] flex-1 bg-white rounded-xl p-8 flex flex-col shadow-lg transition-all card-hover-effect cursor-pointer" onclick="openDetailModal('2024학년도 2학기 수강신청 및 오리엔테이션 안내', '신·편입생 및 재학생 여러분을 위한 2024학년도 2학기 수강신청 일정 및 학과별 오리엔테이션 진행 방식을 안내해 드립니다.\n\n- 수강신청 기간: 2024.08.20 ~ 08.30\n- OT 진행: 100% 온라인 Zoom 설명회')">
-                        <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full w-max mx-auto mb-6">공지사항</span>
-                        <h3 class="text-lg font-bold text-gray-900 text-center mb-4 leading-tight">2024학년도 2학기<br>수강신청 및 오리엔테이션 안내</h3>
-                        <div class="w-6 h-1 bg-gray-200 mx-auto mb-4"></div>
-                        <p class="text-gray-500 text-sm text-center line-clamp-3 mb-8">
-                            신·편입생 및 재학생 여러분을 위한 2024학년도 2학기 수강신청 일정 및 학과별 오리엔테이션 진행 방식을 안내해 드립니다. 반드시 기간 내에...
-                        </p>
-                        <p class="text-gray-400 text-xs text-center mt-auto font-medium">2024-08-15</p>
-                    </div>
+                <div id="news-carousel"
+                    class="flex-1 flex flex-col md:flex-row gap-6 overflow-x-auto hide-scrollbar pb-4 md:pb-0 scroll-smooth">
 
-                    <!-- Card 2 -->
-                    <div data-category="event" class="news-card min-w-[280px] flex-1 bg-white rounded-xl p-8 flex flex-col shadow-lg transition-all card-hover-effect cursor-pointer" onclick="openDetailModal('\'현대인의 스트레스와 우울\' 온라인 줌 특강 안내', '상담심리학과 학우님들의 실무 역량 강화를 위해 저명한 심리학 박사님을 모시고 특별 온라인 강연을 개최합니다.\n\n- 일시: 2024년 8월 25일(일) 14:00\n- 강사: 김상담 박사\n- 참여방법: 제공된 Zoom 링크 접속')">
-                        <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full w-max mx-auto mb-6">특강안내</span>
-                        <h3 class="text-lg font-bold text-gray-900 text-center mb-4 leading-tight">'현대인의 스트레스와 우울'<br>온라인 줌(Zoom) 특강 안내</h3>
-                        <div class="w-6 h-1 bg-gray-200 mx-auto mb-4"></div>
-                        <p class="text-gray-500 text-sm text-center line-clamp-3 mb-8">
-                            상담심리학과 학우님들의 실무 역량 강화를 위해 저명한 심리학 박사님을 모시고 특별 온라인 강연을 개최합니다. 학우 여러분의 많은 참여...
-                        </p>
-                        <p class="text-gray-400 text-xs text-center mt-auto font-medium">2024-08-10</p>
-                    </div>
+                    <!-- Card 1: 명사특강 (빨간색 박스: chae.png) -->
+                    <a href="https://www.ocu.ac.kr/GreatLecturer.do?cmd=viewGreatLecturerBoardContents&menuInfoId=home_00169&boardContentsId=BOAD_2110211439566fb3006a"
+                        target="_blank"
+                        class="news-card min-w-[280px] flex-1 bg-white rounded-xl overflow-hidden flex flex-col shadow-lg transition-all card-hover-effect border border-gray-100 group">
+                        <!-- 이미지 썸네일 배너 -->
+                        <div class="relative w-full h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                            <img src="chae.png" alt="성의 의미 이해 - 채규만교수" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <!-- 카드 하단 내용 -->
+                        <div class="p-6 flex flex-col items-center flex-1 text-center bg-white">
+                            <div class="border border-gray-400 text-xs font-semibold text-gray-700 px-3 py-1 rounded mb-3">
+                                명사특강
+                            </div>
+                            <h3 class="text-base font-bold text-gray-800 group-hover:text-primary transition-colors">
+                                성의 의미 이해 - 채규만교수
+                            </h3>
+                        </div>
+                    </a>
 
-                    <!-- Card 3 -->
-                    <div data-category="notice" class="news-card min-w-[280px] flex-1 bg-white rounded-xl p-8 flex flex-col shadow-lg transition-all card-hover-effect cursor-pointer" onclick="openDetailModal('상담심리지도사 1급 자격증 취득과정 서류 제출 안내', '이번 학기 상담심리지도사 1급 자격증 취득을 희망하시는 학우님들께서는 필수 이수 과목 확인 후 기한 내에 관련 서류를 학과 사무실로 제출해주시기 바랍니다.')">
-                        <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full w-max mx-auto mb-6">공지사항</span>
-                        <h3 class="text-lg font-bold text-gray-900 text-center mb-4 leading-tight">상담심리지도사 1급<br>자격증 취득과정 서류 제출 안내</h3>
-                        <div class="w-6 h-1 bg-gray-200 mx-auto mb-4"></div>
-                        <p class="text-gray-500 text-sm text-center line-clamp-3 mb-8">
-                            이번 학기 상담심리지도사 1급 자격증 취득을 희망하시는 학우님들께서는 필수 이수 과목 확인 후 기한 내에 관련 서류를 학과 사무실로...
-                        </p>
-                        <p class="text-gray-400 text-xs text-center mt-auto font-medium">2024-08-05</p>
-                    </div>
+                    <!-- Card 2: 학습노하우 (빨간색 박스: park.png) -->
+                    <a href="https://www.ocu.ac.kr/InfoBoard.do?cmd=viewBoardContent&boardContentsId=BOAD_2211011021068d4e3cc8&menuInfoId=home_00185"
+                        target="_blank"
+                        class="news-card min-w-[280px] flex-1 bg-white rounded-xl overflow-hidden flex flex-col shadow-lg transition-all card-hover-effect border border-gray-100 group">
+                        <!-- 이미지 썸네일 배너 -->
+                        <div class="relative w-full h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                            <img src="park.png" alt="상담심리학과 박정연 졸업생" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <!-- 카드 하단 내용 -->
+                        <div class="p-6 flex flex-col items-center flex-1 text-center bg-white">
+                            <div class="border border-gray-400 text-xs font-semibold text-gray-700 px-3 py-1 rounded mb-3">
+                                학습노하우
+                            </div>
+                            <h3 class="text-base font-bold text-gray-800 group-hover:text-primary transition-colors">
+                                상담심리학과 박정연 졸업생
+                            </h3>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: 월간인터뷰 (노란색 박스: han.png) -->
+                    <a href="https://www.ocu.ac.kr/InfoBoard.do?cmd=viewBoardContent&boardContentsId=BOAD_2210071757460f9f0390&menuInfoId=home_00185"
+                        target="_blank"
+                        class="news-card min-w-[280px] flex-1 bg-white rounded-xl overflow-hidden flex flex-col shadow-lg transition-all card-hover-effect border border-gray-100 group">
+                        <!-- 이미지 썸네일 배너 -->
+                        <div class="relative w-full h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
+                            <img src="han.png" alt="상담심리학과 한종철 학우님" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <!-- 카드 하단 내용 -->
+                        <div class="p-6 flex flex-col items-center flex-1 text-center bg-white">
+                            <div class="border border-gray-400 text-xs font-semibold text-gray-700 px-3 py-1 rounded mb-3">
+                                월간인터뷰
+                            </div>
+                            <h3 class="text-base font-bold text-gray-800 group-hover:text-primary transition-colors">
+                                상담심리학과 한종철 학우님
+                            </h3>
+                        </div>
+                    </a>
 
                 </div>
 
                 <!-- Right Arrow -->
-                <button id="news-next-btn" class="hidden md:flex w-10 h-10 rounded-full border border-white/30 items-center justify-center text-white hover:bg-white/20 transition-all focus:outline-none hover:scale-110">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <button id="news-next-btn"
+                    class="hidden md:flex w-10 h-10 rounded-full border border-white/30 items-center justify-center text-white hover:bg-white/20 transition-all focus:outline-none hover:scale-110">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -269,40 +617,68 @@
     <section id="schedule-section" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row gap-12">
-                
+
                 <!-- Left: Interactive List with Live Filter -->
                 <div class="flex-1 reveal">
                     <!-- Live Search Input -->
-                    <div class="bg-white rounded-full px-6 py-3 mb-8 flex justify-between items-center shadow-sm border border-gray-200 focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
-                        <input id="search-input" type="text" placeholder="학과 주요 게시물 검색..." class="w-full bg-transparent border-none focus:outline-none text-gray-700 font-medium">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <div
+                        class="bg-white rounded-full px-6 py-3 mb-8 flex justify-between items-center shadow-sm border border-gray-200 focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
+                        <input id="search-input" type="text" placeholder="학과 주요 게시물 검색..."
+                            class="w-full bg-transparent border-none focus:outline-none text-gray-700 font-medium">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
                     </div>
-                    
+
                     <!-- Notice Post List -->
                     <ul id="notice-post-list" class="space-y-4">
-                        <li data-search-title="2024학년도 2학기 전공과목 시간표 안내" class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer" onclick="openDetailModal('2024학년도 2학기 전공과목 시간표 안내', '2024학년도 2학기 상담심리학과 전공과목 개설 시간표 및 강의 교안 다운로드 안내입니다.')">
-                            <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
-                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">2024학년도 2학기 전공과목 시간표 안내</a>
+                        <li data-search-title="2024학년도 2학기 전공과목 시간표 안내"
+                            class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer"
+                            onclick="openDetailModal('2024학년도 2학기 전공과목 시간표 안내', '2024학년도 2학기 상담심리학과 전공과목 개설 시간표 및 강의 교안 다운로드 안내입니다.')">
+                            <span
+                                class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
+                            <a href="javascript:void(0)"
+                                class="text-gray-800 font-semibold truncate hover:underline">2024학년도 2학기 전공과목 시간표 안내</a>
                             <span class="ml-auto text-gray-400 text-xs whitespace-nowrap">2024.08.18</span>
                         </li>
-                        <li data-search-title="임상심리사 2급 수련 실습생 모집 안내" class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer" onclick="openDetailModal('[필독] 임상심리사 2급 수련 실습생 모집 안내', '보건복지부 인정 임상심리사 2급 자격 취득을 위한 1년 수련 실습 과정 모집 공고입니다.')">
-                            <span class="bg-[#1b7183] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">자격증안내</span>
-                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">[필독] 임상심리사 2급 수련 실습생 모집 안내</a>
+                        <li data-search-title="임상심리사 2급 수련 실습생 모집 안내"
+                            class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer"
+                            onclick="openDetailModal('[필독] 임상심리사 2급 수련 실습생 모집 안내', '보건복지부 인정 임상심리사 2급 자격 취득을 위한 1년 수련 실습 과정 모집 공고입니다.')">
+                            <span
+                                class="bg-[#1b7183] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">자격증안내</span>
+                            <a href="javascript:void(0)"
+                                class="text-gray-800 font-semibold truncate hover:underline">[필독] 임상심리사 2급 수련 실습생 모집
+                                안내</a>
                             <span class="ml-auto text-gray-400 text-xs whitespace-nowrap">2024.08.10</span>
                         </li>
-                        <li data-search-title="2024학년도 1학기 성적 이의신청 기간 안내" class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer" onclick="openDetailModal('2024학년도 1학기 성적 이의신청 기간 안내', '1학기 최종 성적 확인 및 이의신청 절차에 관한 상세 안내입니다.')">
-                            <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
-                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">2024학년도 1학기 성적 이의신청 기간 안내</a>
+                        <li data-search-title="2024학년도 1학기 성적 이의신청 기간 안내"
+                            class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer"
+                            onclick="openDetailModal('2024학년도 1학기 성적 이의신청 기간 안내', '1학기 최종 성적 확인 및 이의신청 절차에 관한 상세 안내입니다.')">
+                            <span
+                                class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
+                            <a href="javascript:void(0)"
+                                class="text-gray-800 font-semibold truncate hover:underline">2024학년도 1학기 성적 이의신청 기간
+                                안내</a>
                             <span class="ml-auto text-gray-400 text-xs whitespace-nowrap">2024.07.28</span>
                         </li>
-                        <li data-search-title="학생상담센터 재학생 대상 무료 심리검사 실시 안내" class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer" onclick="openDetailModal('[학생상담센터] 재학생 대상 무료 심리검사 실시 안내', 'MBTI, MMPI 등 재학생 무료 심리검사 및 해석 상담 프로그램 안내입니다.')">
-                            <span class="bg-[#1b7183] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학생지원</span>
-                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">[학생상담센터] 재학생 대상 무료 심리검사 실시 안내</a>
+                        <li data-search-title="학생상담센터 재학생 대상 무료 심리검사 실시 안내"
+                            class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer"
+                            onclick="openDetailModal('[학생상담센터] 재학생 대상 무료 심리검사 실시 안내', 'MBTI, MMPI 등 재학생 무료 심리검사 및 해석 상담 프로그램 안내입니다.')">
+                            <span
+                                class="bg-[#1b7183] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학생지원</span>
+                            <a href="javascript:void(0)"
+                                class="text-gray-800 font-semibold truncate hover:underline">[학생상담센터] 재학생 대상 무료 심리검사 실시
+                                안내</a>
                             <span class="ml-auto text-gray-400 text-xs whitespace-nowrap">2024.07.20</span>
                         </li>
-                        <li data-search-title="하계 방학 중 학과 사무실 운영 시간 안내" class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer" onclick="openDetailModal('하계 방학 중 학과 사무실 운영 시간 안내', '하계 방학 기간 학과 단축 근무 및 점심시간 안내입니다. (운영시간: 09:00~17:00)')">
-                            <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
-                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">하계 방학 중 학과 사무실 운영 시간 안내</a>
+                        <li data-search-title="하계 방학 중 학과 사무실 운영 시간 안내"
+                            class="post-item flex items-center gap-4 bg-gray-50 hover:bg-white p-3 rounded-lg transition-all border border-transparent hover:border-gray-200 hover:shadow-md cursor-pointer"
+                            onclick="openDetailModal('하계 방학 중 학과 사무실 운영 시간 안내', '하계 방학 기간 학과 단축 근무 및 점심시간 안내입니다. (운영시간: 09:00~17:00)')">
+                            <span
+                                class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">학사</span>
+                            <a href="javascript:void(0)" class="text-gray-800 font-semibold truncate hover:underline">하계
+                                방학 중 학과 사무실 운영 시간 안내</a>
                             <span class="ml-auto text-gray-400 text-xs whitespace-nowrap">2024.07.15</span>
                         </li>
                     </ul>
@@ -313,16 +689,28 @@
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-gray-900">학사 일정</h2>
                         <div class="flex gap-2">
-                            <button id="schedule-prev-btn" class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-all hover:scale-105" title="이전 달"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                            <button id="schedule-next-btn" class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white hover:bg-teal-700 transition-all hover:scale-105" title="다음 달"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                            <button id="schedule-prev-btn"
+                                class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-all hover:scale-105"
+                                title="이전 달"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg></button>
+                            <button id="schedule-next-btn"
+                                class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white hover:bg-teal-700 transition-all hover:scale-105"
+                                title="다음 달"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg></button>
                         </div>
                     </div>
 
                     <!-- Interactive Schedule Widget -->
-                    <div id="schedule-card-widget" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-6 transition-all duration-300">
+                    <div id="schedule-card-widget"
+                        class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-6 transition-all duration-300">
                         <div class="flex items-center justify-between border-b pb-4 mb-4">
                             <span id="schedule-month" class="text-lg font-bold text-primary">2024년 8월 주요 일정</span>
-                            <span class="text-xs bg-blue-100 text-primary font-bold px-2.5 py-1 rounded-full">학사일정</span>
+                            <span
+                                class="text-xs bg-blue-100 text-primary font-bold px-2.5 py-1 rounded-full">학사일정</span>
                         </div>
                         <div id="schedule-content" class="space-y-3 text-sm">
                             <div class="flex items-start gap-3">
@@ -342,30 +730,51 @@
 
                     <!-- 2 Cards below schedule -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                        
+
                         <!-- Card 1 -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col relative group card-hover-effect cursor-pointer" onclick="openDetailModal('입학 상담하기', '상담심리학과 입학 상담 전화: 02-1234-5678\n온라인 1:1 입학 Q&A 서비스를 이용해 보세요.')">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col relative group card-hover-effect cursor-pointer"
+                            onclick="openDetailModal('입학 상담하기', '상담심리학과 입학 상담 전화: 02-1234-5678\n온라인 1:1 입학 Q&A 서비스를 이용해 보세요.')">
                             <h3 class="text-xl font-bold text-gray-900 mb-2">입학 상담하기</h3>
                             <p class="text-gray-500 text-sm mb-6 w-2/3">편입, 학사, 장학금 등 입학 관련 궁금하신 점을 상담해 드립니다.</p>
-                            <button class="flex items-center gap-1 text-sm font-bold text-gray-600 border border-gray-300 rounded-full px-4 py-1.5 w-max hover:bg-gray-50 transition-colors">
-                                바로가기 <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <button
+                                class="flex items-center gap-1 text-sm font-bold text-gray-600 border border-gray-300 rounded-full px-4 py-1.5 w-max hover:bg-gray-50 transition-colors">
+                                바로가기 <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
                             </button>
                             <!-- Decorative SVG -->
-                            <div class="absolute bottom-4 right-4 w-16 h-16 text-secondary opacity-80 transition-transform group-hover:scale-110">
-                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h10v2H7zM7 12h7v2H7z"/></svg>
+                            <div
+                                class="absolute bottom-4 right-4 w-16 h-16 text-secondary opacity-80 transition-transform group-hover:scale-110">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z" />
+                                    <path d="M7 9h10v2H7zM7 12h7v2H7z" />
+                                </svg>
                             </div>
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col relative group card-hover-effect cursor-pointer" onclick="openDetailModal('학생 성공 사례', '수많은 졸업생들이 병원, 학교, 상담센터 및 대학원으로 진출하고 있습니다.')">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col relative group card-hover-effect cursor-pointer"
+                            onclick="openDetailModal('학생 성공 사례', '수많은 졸업생들이 병원, 학교, 상담센터 및 대학원으로 진출하고 있습니다.')">
                             <h3 class="text-xl font-bold text-gray-900 mb-2">학생 성공 사례</h3>
                             <p class="text-gray-500 text-sm mb-6 w-2/3">졸업생들의 생생한 취업 및 진학 성공 스토리를 확인하세요.</p>
-                            <button class="flex items-center gap-1 text-sm font-bold text-gray-600 border border-gray-300 rounded-full px-4 py-1.5 w-max hover:bg-gray-50 transition-colors">
-                                바로가기 <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <button
+                                class="flex items-center gap-1 text-sm font-bold text-gray-600 border border-gray-300 rounded-full px-4 py-1.5 w-max hover:bg-gray-50 transition-colors">
+                                바로가기 <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
                             </button>
                             <!-- Decorative SVG -->
-                            <div class="absolute bottom-4 right-4 w-16 h-16 text-primary opacity-80 transition-transform group-hover:scale-110">
-                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                            <div
+                                class="absolute bottom-4 right-4 w-16 h-16 text-primary opacity-80 transition-transform group-hover:scale-110">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                                </svg>
                             </div>
                         </div>
 
@@ -375,67 +784,31 @@
         </div>
     </section>
 
-    <!-- Newsletter Section (Light Blue Wave BG) -->
-    <section id="newsletter-section" class="bg-blue-50 py-16 relative overflow-hidden">
-        <!-- Abstract top wave -->
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none">
-            <svg class="relative block w-full h-12" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#f3f4f6"></path>
-            </svg>
-        </div>
-
-        <div class="max-w-4xl mx-auto px-4 mt-8 relative z-10 flex flex-col md:flex-row items-center gap-12 reveal">
-            
-            <!-- Graphic Left -->
-            <div class="w-48 h-48 hidden md:block">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:rotate-6 transition-transform duration-500">
-                    <circle cx="100" cy="100" r="80" fill="#EBF4FF"/>
-                    <rect x="60" y="70" width="80" height="60" rx="4" fill="white" stroke="#164E87" stroke-width="4"/>
-                    <path d="M60 70L100 100L140 70" stroke="#164E87" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="160" cy="50" r="10" fill="#FDE68A"/>
-                    <circle cx="40" cy="150" r="6" fill="#1A7162"/>
-                </svg>
-            </div>
-
-            <!-- Form Right -->
-            <div class="flex-1 text-center md:text-left">
-                <h2 class="text-2xl font-extrabold text-primary mb-2">학과 소식지 구독</h2>
-                <p class="text-gray-600 text-sm mb-6">상담심리학과의 최신 소식과 특강 일정을 이메일로 받아보세요.</p>
-                
-                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto md:mx-0">
-                    <input id="sub-name" type="text" placeholder="이름" required class="w-full sm:w-24 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                    <input id="sub-email" type="email" placeholder="이메일 주소를 입력하세요" required class="w-full flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
-                    <button type="submit" class="w-full sm:w-auto bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-[#0f3863] transition-colors shadow-md hover:shadow-lg">구독신청</button>
-                </form>
-                
-                <div class="mt-3 flex items-center justify-center md:justify-start gap-2">
-                    <input type="checkbox" id="privacy" required class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary">
-                    <label for="privacy" class="text-xs text-gray-500"><a href="javascript:void(0)" onclick="openDetailModal('개인정보 수집 동의', '입력하신 이름과 이메일은 학과 소식지 발송 이외의 목적으로는 사용되지 않습니다.')" class="underline hover:text-gray-700">개인정보 수집 및 이용</a>에 동의합니다 (필수)</label>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-gray-100 border-t border-gray-200 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold text-sm">O</div>
+                <a href="https://www.ocu.ac.kr/Main.do?cmd=viewMain" target="_blank" title="한국열린사이버대학교 메인 사이트로 이동">
+                    <img src="logo.png" alt="한국열린사이버대학교 로고" class="h-8 w-auto object-contain hover:opacity-80 transition-opacity">
+                </a>
                 <div>
-                    <h3 class="font-bold text-gray-700">열린사이버대학교 상담심리학과</h3>
+                    <h3 class="font-bold text-gray-700">한국열린사이버대학교 상담심리학과</h3>
                 </div>
             </div>
-            
+
             <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-gray-600">
-                <a href="javascript:void(0)" onclick="openDetailModal('개인정보처리방침', '열린사이버대학교 상담심리학과는 관련 법령에 따라 이용자의 개인정보를 안전하게 보호합니다.')" class="hover:text-primary transition-colors">개인정보처리방침</a>
+                <a href="javascript:void(0)"
+                    onclick="openDetailModal('개인정보처리방침', '한국열린사이버대학교 상담심리학과는 관련 법령에 따라 이용자의 개인정보를 안전하게 보호합니다.')"
+                    class="hover:text-primary transition-colors">개인정보처리방침</a>
                 <span class="text-gray-300">|</span>
-                <a href="javascript:void(0)" onclick="openDetailModal('이용약관', '서비스 이용약관 관련 안내 내용입니다.')" class="hover:text-primary transition-colors">이용약관</a>
-                <span class="text-gray-300">|</span>
-                <a href="javascript:void(0)" onclick="openDetailModal('이메일무단수집거부', '본 웹사이트에 게시된 이메일 주소가 무단 수집되는 것을 거부합니다.')" class="hover:text-primary transition-colors">이메일무단수집거부</a>
+                <a href="javascript:void(0)"
+                    onclick="openDetailModal('이메일무단수집거부', '본 웹사이트에 게시된 이메일 주소가 무단 수집되는 것을 거부합니다.')"
+                    class="hover:text-primary transition-colors">이메일무단수집거부</a>
             </div>
         </div>
         <div class="text-center mt-6 text-xs text-gray-400">
-            Copyright © 열린사이버대학교 상담심리학과. All rights reserved.
+            Copyright © 한국열린사이버대학교 상담심리학과. All rights reserved.
         </div>
     </footer>
 
@@ -444,15 +817,20 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="flex justify-between items-start border-b pb-4 mb-4">
                 <h3 id="modal-title" class="text-xl font-bold text-gray-900 leading-snug">안내 타이틀</h3>
-                <button onclick="closeDetailModal()" class="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <button onclick="closeDetailModal()"
+                    class="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
                 </button>
             </div>
             <div id="modal-body" class="text-gray-600 text-sm leading-relaxed whitespace-pre-line min-h-[100px]">
                 상세 내용이 표시되는 영역입니다.
             </div>
             <div class="mt-6 flex justify-end">
-                <button onclick="closeDetailModal()" class="bg-primary text-white font-bold px-5 py-2 rounded-lg hover:bg-blue-900 transition-colors shadow-sm">
+                <button onclick="closeDetailModal()"
+                    class="bg-primary text-white font-bold px-5 py-2 rounded-lg hover:bg-blue-900 transition-colors shadow-sm">
                     확인
                 </button>
             </div>
@@ -467,22 +845,31 @@
                     <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
                     <h3 id="video-modal-title" class="text-lg font-bold text-white">상담심리학과 소개 영상</h3>
                 </div>
-                <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white p-1 rounded-full hover:bg-gray-800 transition-colors focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <button onclick="closeVideoModal()"
+                    class="text-gray-400 hover:text-white p-1 rounded-full hover:bg-gray-800 transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
                 </button>
             </div>
             <!-- 16:9 Responsive Video Iframe Container -->
             <div class="video-container">
-                <iframe id="video-iframe" src="" title="상담심리학과 소개 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="video-iframe" src="" title="상담심리학과 소개 영상"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <!-- 성공 알림 토스트 (Toast Notification) -->
     <div id="toast-notification" class="toast-notification">
-        <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
         <span id="toast-text" class="text-sm font-semibold">알림 메시지</span>
     </div>
 
 </body>
+
 </html>
